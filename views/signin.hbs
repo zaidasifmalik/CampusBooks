@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="/css/signin.css">
+
+<div class="row">
+    <div class="col-6 first-col text-center">
+        <img src="/images/book.jpg" alt="no-image">
+        <br>
+        <br>
+        <a href="/registeration" class="reg-link">
+            <h5>create an account</h5>
+        </a>
+        <hr class="reg-line">
+    </div>
+    <div class="col-6 second-col px-5">
+        {{#if exist}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{exist}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+        {{#if danger}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{danger}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+        {{#if success}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{success}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+        {{#if sess}}
+        <script>
+            let log = document.getElementById('log-btn');
+            log.innerHTML = "Logout";
+            let s = `/images/{{sess.image}}`
+            document.getElementById('prof').src = s;
+        </script>
+        {{else}}
+        <script>
+            let log = document.getElementById('log-btn');
+            log.innerHTML = "Login";
+            let s = `/images/def-pic.png`
+            document.getElementById('prof').src = s;
+        </script>
+        {{/if}}
+
+        <h2 class="login-title">Log in</h2>
+        <br>
+        <form action="/signin" method="POST">
+            <div class="email-imput">
+                <i class="bi bi-person-fill"></i>
+                <input type="email" placeholder="Email" name="email">
+                <hr class="line">
+            </div>
+            <div class="pass-input">
+                <i class="bi bi-lock-fill"></i>
+                <input type="password" placeholder="Password" name="password">
+                <hr class="line">
+            </div>
+            <br>
+            <button type="submit" class="login-btn">Log in</button>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,85 @@
+{{#if sess}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Logout";
+    let s = `images/{{sess.image}}`
+    document.getElementById('prof').src = s;
+    console.log('user sent to admin');
+</script>
+{{else}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Login";
+    console.log('user not sent to admin');
+</script>
+{{/if}}
+
+
+<link rel="stylesheet" href="/css/admin.css">
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Users</li>
+    <li class="breadcrumb-item">  <a href="/books">Books</a></li>
+  </ol>
+</nav>
+
+<form action="/sortUsers" method="POST">
+  <div class="select" id="select">
+   <select name="sort" id="sort">
+      <option value="name" selected hidden disabled>Sort By</option>
+      <option value="id">ID</option>
+      <option value="name">Name</option> 
+      <option value="program">Batch</option>
+      <option value="semester">Semester</option>
+      <option value="rollno">RollNo</option>
+   </select>
+   <button type="submit" class="sort-btn">Sort</button>
+</div>
+</form>
+
+<table class="table">
+  {{!-- <thead class="thead-light">
+    <tr class="text-center">
+      <th scope="col">#</th>
+      <th scope="col">User</th>
+      <th scope="col"></th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col" >Action</th>
+    </tr>
+  </thead> --}}
+  <tbody>
+    {{#each rows}}
+    <tr class="text-center">
+      <th scope="row">{{this.id}}</th>
+      {{#if this.image}}
+        <td>
+          <div class="profile">
+              <img class="prof-img" src='images/{{this.image}}'alt="">
+          </div>
+        </td>
+      {{else}}
+        <td>
+          <div class="profile">
+              <img class="prof-img" src='images/def-pic.jpg'alt="">
+          </div>
+        </td>
+      {{/if}}
+      <td><p>{{this.first_name}}</p></td>
+     {{!-- <td>{{this.first_name}}</td>
+      <td>{{this.last_name}}</td> --}}
+      <td>{{this.email}}</td>
+      <td class="text-center">
+        <a href="/profile/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i></a>
+        <a href="/listbooks/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-book"></i></a>
+        <a href="/deleteuser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i></a>
+      </td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>

@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="/css/books.css">
+{{#if sess}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Logout";
+    let s = `/images/{{sess.image}}`
+    document.getElementById('prof').src = s;
+</script>
+{{else}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Login";
+    let s = `/images/def-pic.png`
+    document.getElementById('prof').src = s;
+</script>
+{{/if}}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" > <a href="/">Home</a></li>
+    <li class="breadcrumb-item" > <a href="/admin">Users</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Books</li>
+  </ol>
+</nav>
+
+<div class="row"> 
+  <div class="col-6"><h1>All Books</h1></div>
+  <div class="col-6 d-flex justify-content-end">
+    <a href="/addbook" type = "button" class="btn btn-primary align-self-center">Add Book</a>
+  </div>
+</div>
+
+<table class="table table-bordered">
+  <thead class="thread-dark"> 
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Book Name</th>
+      <th scope="col">Book Edition </th>
+      <th scope="col">Subject</th>
+      <th scope="col">Semester</th>
+      <th scope="col">Author Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Condition</th>
+       <th scope="col">Instock</th>
+      <th scope="col">Image</th>
+
+      <th scope="col" class="text-end">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rows}}
+    <tr class="bookrecords">
+        <td scope= "row">{{this.Book_Id}}</td>
+        <td>{{this.Book_Name}}</td>
+        <td>{{this.Book_Edition}}</td>
+        <td>{{this.Subject}}</td>
+        <td>{{this.Semester}}</td>
+        <td>{{this.Author_Name}}</td>
+        <td>{{this.Price}}</td>
+        <td>{{this.Cond}}</td>
+        <td>{{this.In_Stock}}</td>
+        {{#if this.bImg}}
+        <td> <div class="profile">
+              <img class="prof-img" src='images/{{this.bImg}}'alt="">
+          </div>
+          </td>
+        {{else}}
+        <td>
+          <div class="profile">
+              <img class="prof-img" src='images/def-pic.png'alt="">
+          </div>
+        </td>
+        {{/if}}
+        <td class="text-end">
+        <a href="/product/{{this.Book_Id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i>Views</a>
+        <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>Edit</a>
+        <a href="/deleteBook/{{this.Book_Id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i>Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,209 @@
+<div class="row">
+        <div class="col-6 first-col px-5">
+            {{#if empty}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{empty}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {{/if}}
+            {{!-- {{#if success}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{success}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {{/if}} --}}
+            {{#if pass}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{pass}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {{/if}}
+            {{#if exist}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{exist}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {{/if}}
+            {{#if fail}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{fail}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {{/if}}
+            {{#if success}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{success}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {{/if}}
+            <br>
+            <div class="text">
+                <i class="bi bi-person-fill"></i>
+                <input type="text" placeholder="First Name" name="f_name" value="{{this.first_name}}">
+                <hr class="line">
+            </div>
+            <div class="text">
+                <i class="bi bi-person-fill"></i>
+                <input type="text" placeholder="Last Name" name="l_name" value="{{this.last_name}}">
+                <hr class="line">
+            </div>
+            <div class="rollno">
+                    <i class="bi bi-person-fill"></i>
+                    <input type="text" placeholder="Roll No" name="rollno" value="{{this.rollno}}">
+                    <hr class="line">
+            </div>
+            <div class="email-imput">
+                <i class="bi bi-envelope-fill"></i>
+                <input type="email" placeholder="Email" name="email" value="{{this.email}}">
+                <hr class="line">
+            </div>
+            <div class="pass-input">
+                <i class="bi bi-lock-fill"></i>
+                <input type="password" placeholder="Password" name="password" value="{{this.password}}">
+                <hr class="line">
+            </div>
+            <div class="pass-input">
+                <i class="bi bi-lock-fill"></i>
+                <input type="password" placeholder="Repeat your password" name="password2">
+                <hr class="line">
+            </div>
+            <br>
+            <button type="submit" class="registeration-btn">Next</button>
+        </div>
+
+        <div class="col-6 second-col">
+            {{#if this.image}}
+            <div class="display"><img src="/images/{{this.image}}" class="rounded-circle"></div>
+            {{else}}
+             <div class="display"><img src="/images/def-pic.jpg" class="rounded-circle"></div>
+             {{/if}}
+            <br>
+            <input type="file" id="upload" name="profileimg" accept="image/*" />
+            <br>
+            <label for="upload"><i class="bi bi-cloud-arrow-up-fill"></i></label>
+            <hr class="login-line">
+            
+            <div class="row row2">
+                <select class="dd" name="university" id="university">
+                    <option value="FAST-NUCES">FAST-NUCES</option>
+                    <option value="NUST">NUST</option>
+                    <option value="LUMS">LUMS</option>
+                    {{#if this.name}}
+                    <option hidden="hidden" value="{{this.name}}" selected>{{this.name}}</option>
+                    {{else}}
+                    <option hidden="hidden" value="" selected>University</option>
+                    {{/if}}
+                </select>
+                <select class="dd" name="campus" id="campus">
+                    <option value="Lahore">Lahore</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <option value="Faislabad">Faislabad</option>
+                    {{#if this.campus}}
+                    <option hidden="hidden" value="{{this.campus}}" selected>{{this.campus}}</option>
+                    {{else}}
+                    <option hidden="hidden" value="" selected>Campus</option>
+                    {{/if}}
+                </select> 
+                <select class="dd" name="batch" id="batch">
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                     {{#if this.program}}
+                    <option hidden="hidden" value="{{this.program}}" selected>{{this.program}}</option>
+                    {{else}}
+                    <option hidden="hidden" value="" selected>Batch</option>
+                    {{/if}}
+                </select>
+                 <select class="dd" name="semester" id="semester">
+                    <option value="1">1st</option>
+                    <option value="2">2nd</option>
+                    <option value="3">3rd</option>
+                    <option value="4">4th</option>
+                    <option value="5">5th</option>
+                    <option value="6">6th</option>
+                    <option value="7">7th</option>
+                    <option value="8">8th</option>
+                     {{#if this.semester}}
+                    <option hidden="hidden" value="{{this.semester}}" selected>{{this.semester}}</option>
+                    {{else}}
+                    <option hidden="hidden" value="" selected>Semester</option>
+                    {{/if}}
+                </select> 
+                <select class="dd" name="gender" id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                     {{#if this.gender}}
+                    <option hidden="hidden" value="{{this.gender}}" selected>{{this.gender}}</option>
+                    {{else}}
+                    <option hidden="hidden" value="" selected>Gender</option>
+                    {{/if}}
+                </select>
+                <select class="dd" name="city" id="city">
+                    <option value="Lahore">Lahore</option>
+                    <option value="Islamabad">Islamabad</option>
+                     {{#if this.city}}
+                    <option hidden="hidden" value="{{this.city}}" selected>{{this.city}}</option>
+                    {{else}}
+                    <option hidden="hidden" value="" selected>City</option>
+                    {{/if}}
+                </select>
+                <div class="email-input2">
+                <i class="bi bi-envelope-fill"></i>
+                <input type="email" placeholder="Personal Email (optional)" name="personal-email">
+                <hr class="line">
+                </div>
+                    {{!-- <div class="dropdown col-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            University
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button">FAST-NUCES</button></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown col-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Campus
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button">FAST-NUCES</button></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown col-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Semester
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button">FAST-NUCES</button></li>
+                            <li><button class="dropdown-item" type="button">BNU</button></li>
+                            <li><button class="dropdown-item" type="button">NUST</button></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown col-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Semester
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button">Lahore</button></li>
+                            <li><button class="dropdown-item" type="button">Islamabad</button></li>
+                            <li><button class="dropdown-item" type="button">Faislabad</button></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown col-4">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Campus
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item" type="button">FAST-NUCES</button></li>
+                            <li><button class="dropdown-item" type="button">BNU</button></li>
+                            <li><button class="dropdown-item" type="button">NUST</button></li>
+                        </ul>
+                    </div> --}}
+            </div>
+        </div>
+    </div>

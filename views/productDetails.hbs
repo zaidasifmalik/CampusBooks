@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="/css/ProdPage.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+{{#if sess}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Logout";
+    let s = `images/{{sess.image}}`
+    document.getElementById('prof').src = s;
+    console.log('user sent to admin');
+</script>
+{{else}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Login";
+    console.log('user not sent to admin');
+</script>
+{{/if}}
+
+<section class="bord">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 ">
+            {{#each rows}}
+            <div class="col-md-6">
+                <img class="card-img-top mb-5 mb-md-0" src="/images/{{this.bImg}}" alt="..." />
+            </div>
+            <div class="col-md-6">
+                {{!-- <div class="small mb-1">SKU: BST-498</div> --}}
+                <h1 class="display-5 fw-bolder">{{this.Book_Name}}
+                </h1>
+                <hr>
+                <div>
+                    <div style="margin-left: 3%;">
+                        <h4>Book Info</h4>
+                        <div style="margin-left: 5%;">
+                            <div>Edition: {{this.Book_Edition}} </div>
+                            <div>Subject: {{this.Subject}}</div>
+                            <div>Semester: {{this.Semester}}</div>
+                            <div>Author: {{this.Author_Name}} </div>
+                            <div>Condition: {{this.Cond}} </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="fs-5 mb-2" style="margin-left: 3%;">
+                        <span class="text-decoration">Price: pkr {{this.Price}}</span>
+                    </div>
+                    <hr>
+                    <div style="margin-left: 3%;">
+                        <h4>Description:</h4>
+                        <p style="margin-left: 5%;">{{this.Description}}</p>
+                    </div>
+                    <hr>
+                    <h5 style="margin-left: 3%;" id="loginfirst"></h5>
+                    <div class="d-flex">
+                        <div class="container mt-5">
+                            <button type="button" id="show-modal-btn" class="btn btn-outline-dark flex-shrink-0"
+                                data-bs-toggle="modal" data-bs-target="#myModal">Message Seller</button>
+                            <div class="modal" id="myModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Message Seller</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="post" action="/product/{{Book_Id}}"
+                                                enctype="multipart/form-data" novalidate>
+                                                <div class="mb-3">
+                                                    <label name="message" class="form-label required">Type ypur message
+                                                        here</label>
+                                                    <textarea name="message" class="form-control">Hey, I want to buy this book. Let's connect</textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" id="info" class="btn btn-outline-dark flex-shrink-0"
+                                data-bs-toggle="modal" data-bs-target="#myModal">Contact Info</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+{{#if sess}}
+<script>
+    let log = document.getElementById('show-modal-btn');
+    log.innerHTML = "Message Sellar";
+</script>
+{{else}}
+<script>
+    let log = document.getElementById('show-modal-btn');
+    log.addEventListener('click', function () {
+        window.location.href = '/signin';
+    });
+    log.style.display = 'none';
+    let info = document.getElementById('info');
+    info.style.display = 'none';
+    document.getElementById("loginfirst").innerHTML = "Login to Contact Seller";
+</script>
+{{/if}}

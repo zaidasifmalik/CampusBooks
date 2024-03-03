@@ -1,0 +1,127 @@
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
+
+{{#if msg}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{msg}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+{{#if logout}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{logout}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+{{#if admin}}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+    <li class="breadcrumb-item"><a href="/admin">Users</a></li>
+    <li class="breadcrumb-item"><a href="/books">Books</a></li>
+  </ol>
+</nav>
+{{/if}}
+
+{{#if sess}}
+<script>
+  let log = document.getElementById('log-btn');
+  log.innerHTML = "Logout";
+  let s = `/images/{{sess.image}}`
+  document.getElementById('prof').src = s;
+</script>
+{{else}}
+<script>
+  let log = document.getElementById('log-btn');
+  log.innerHTML = "Login";
+</script>
+{{/if}}
+
+<div class="container">
+  <div class="row dropdown-row">
+    <div class="col col-6 first-col">
+      <form action="/home" method="POST">
+        <div class="select" id="select">
+          <select name="sort" id="sort">
+            <option value="Book_Name" selected hidden disabled>Sort By</option>
+            <option value="Book_Name">Name</option>
+            <option value="Price">Price</option>
+            <option value="date_added">Date added</option>
+          </select>
+          <button type="submit" class="sort-btn sort-1"> Sort</button>
+        </div>
+      </form>
+    </div>
+    <div class="col col-6 second-col d-flex justify-content-end">
+      <form action="/filter" method="POST">
+          <select class="select2" name="uni" id="select">
+            <option value="" selected hidden disabled>University</option>
+            <option value="FAST-NUCES">FAST-NUCES</option>
+            <option value="NUST">NUST</option>
+            <option value="LUMS">LUMS</option>
+          </select>
+           <select class="select2" name="campus" id="select">
+            <option value="" selected hidden disabled>Campus</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Islamabad">Islamabad</option>
+            <option value="Faislabad">Faislabad</option>
+          </select>
+           <select class="select2" name="sem" id="select">
+            <option value="" selected hidden disabled>Semester</option>
+            <option value="1">1st</option>
+            <option value="2">2nd</option>
+            <option value="3">3rd</option>
+            <option value="4">4th</option>
+            <option value="5">5th</option>
+            <option value="6">6th</option>
+            <option value="7">7th</option>
+            <option value="8">8th</option>
+          </select>
+          <button type="submit" class="sort-btn sort-btn2"><i class="bi bi-funnel"></i> Filter &nbsp; </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{!-- <div class="container">
+  <div class="row">
+    <form action="/home" method="POST">
+      <div class="select" id="select">
+        <select name="sort" id="sort">
+          <option value="Book_Name" selected hidden disabled>Sort By</option>
+          <option value="Book_Name">Name</option>
+          <option value="Price">Price</option>
+          <option value="date_added">Date added</option>
+        </select>
+        <button type="submit" class="sort-btn">Sort</button>
+      </div>
+    </form>
+  </div>
+</div> --}}
+
+
+
+{{!-- <div class="card-deck"> --}}
+  <div class="row">
+    {{#each rows}}
+    <div class="col-md-3 col-sm-6 mb-4 boxx">
+      <div class="card">
+        <a href='/product/{{this.Book_Id}}'><img class="card-img-top" src='/images/{{this.bImg}}' style="height: 25vh;"
+            alt="Card image cap"></a>
+        <div class="card-body">
+          <h6 class="card-title">{{this.Book_Name}} <a href="/addToWishlist/{{this.Book_Id}}"><i
+                class="bi bi-heart"></i></a></h6>
+          <h5>Rs {{this.Price}}</h5>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{!--
+</div> --}}
+
+<script>
+
+</script>

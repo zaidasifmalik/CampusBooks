@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
+
+{{#if sess}}
+<script>
+  let log = document.getElementById('log-btn');
+  log.innerHTML = "Logout";
+  let s = `/images/{{sess.image}}`
+  document.getElementById('prof').src = s;
+</script>
+{{else}}
+<script>
+  let log = document.getElementById('log-btn');
+  log.innerHTML = "Login";
+</script>
+{{/if}}
+
+{{#each rows}}
+<div class="card">
+  <div class="card-header">
+        <h5>{{this.first_name}} {{this.last_name}} | {{this.email}}</h5>
+    <h6 class="text-muted">Sent at: {{this.time}}</h6>
+  </div>
+  <div class="card-body">
+    <p>{{this.text}}</p>
+  </div>
+</div>
+{{/each}}

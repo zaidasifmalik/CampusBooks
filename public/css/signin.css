@@ -1,0 +1,61 @@
+
+.row{
+    
+    height: 100%;
+    width: 100%;
+}
+
+.first-col{
+   height: 75vh;
+   overflow: hidden;
+}
+
+.first-col img{
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+}
+
+.login-title{
+    margin-top: 40px;
+    font-weight: bolder;
+}
+
+input{
+    margin-top: 20px;
+    border: none;
+    margin-left: 10px; 
+}
+
+::-webkit-input-placeholder{
+    color: gray;
+}
+
+input:focus{
+    box-shadow: none;
+    outline: none;
+    border-color: none;
+}
+
+.login-btn{
+    border: none;
+    background-color: lightblue;
+    opacity: 0.6;
+    transition: 0.3s;
+    padding: 10px 20px;
+}
+
+.login-btn:hover{
+    opacity: 1;
+}
+
+h5{
+    color: gray;
+}
+.reg-link{
+    text-decoration: none;
+}
+.reg-line{
+    width: 30%;
+    margin-left: 185px;
+}

@@ -1,0 +1,87 @@
+.row{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+.second-col{
+    height: 100%;
+    overflow: hidden;
+ }
+ .display{
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    margin:auto;
+    overflow: hidden;
+}
+.second-col img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.registeration-title{
+    margin-top: 15px;
+    font-weight: bolder;
+}
+input{
+    margin-top: 15px;
+    border: none;
+    margin-left: 10px; 
+}
+input:focus{
+    box-shadow: none;
+    outline: none;
+    border-color: none;
+}
+.registeration-btn{
+    border: none;
+    background-color: lightblue;
+    opacity: 0.6;
+    transition: 0.3s;
+    padding: 10px 20px;
+}
+.registeration-btn:hover{
+    opacity: 1;
+}
+h5{
+    color: gray;
+}
+.login-link{
+    text-decoration: none;
+}
+.login-line{
+    width: 30%;
+    margin-left: 185px;
+}
+#upload{
+    display: none;
+}
+label{
+    cursor: pointer;
+    margin-left: 48%;
+}
+.dropdown-menu li{
+    padding: 0px;
+}
+.row2{
+    margin-top: 7%;
+}
+.dropdown
+{
+    padding-top: 40px;
+}
+select{
+    padding: 10px;
+}
+.dd{
+    width: 40%;
+    margin-top: 40px;
+    margin-left: 30px;
+    min-width: 120px;
+}
+.email-input2{
+    margin-top: 35px;
+    margin-left: 20px;
+}

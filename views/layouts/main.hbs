@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBooks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/"> CB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex mx-5" role="search" method="POST" action="/" novalidate>
+                    <input class="form-control me-3 search-bar" type="search" placeholder="Search" aria-label="Search"
+                        name="search">
+                    <button type="submit" class="btn"><i class="bi bi-search"></i></button>
+                </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-list">
+                    <li class="nav-item ni">
+                        <a class="nav-link" id="sell-btn" href="/MessagePage">Messages</a>
+                    </li>
+                    <li class="nav-item ni">
+                        <a class="nav-link" id="sell-btn" href="/sell">Sell</a>
+                    </li>
+                    <li class="nav-item ni">
+                        <a class="nav-link" id="log-btn" href="/signin">Login</a>
+                    </li>
+                    <li class="nav-item ni">
+                        <a class="nav-link" href="/wishlist"><i class="bi bi-heart"></i></a>
+                    </li>
+                     <li class="nav-item ni">
+                        <a class="nav-link" href="/notifications"> <i class="bi bi-bell"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile"> <img src="/images/def-pic.png" class="prof-img-nav"
+                                id="prof" alt=""> </a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        {{{body}}}
+    </div>
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+<footer>
+    <div class="footer" id="footer">
+        <span class="copyright">LOGO © 2023 Books, Inc. <a href="/about" class="start">About</a> <a href="/contact"
+                class="f-item">Contact Us</a> <a href="/api" class="f-item">API</a> </span>
+        <div class="col-4 newsletter">
+            <span class="NL-text">Subscribe to our newsletter and Get 10% off</span>
+            <form action="/newsletter" method="POST">
+                <input class="nl-input" type="text" placeholder=" Enter mail" name="email">
+                <button class="nl-btn" type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+</html>

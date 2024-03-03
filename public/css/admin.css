@@ -1,0 +1,77 @@
+.prof-img
+{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px #0003;
+    /* float: left; */
+}
+.prof-img-nav{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px #0003;
+    /* float: left; */
+}
+td{
+    vertical-align:middle;
+}
+.left{
+    float: left;
+    margin-top: 15%;
+}
+h4{
+    margin-top: 30px;
+    margin-left: 27px;
+    margin-bottom: 40px;
+}
+.breadcrumb{
+    margin-left: 2%;
+    margin-bottom: 3%;  
+}
+
+
+
+
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0!important;
+    background:#284b63;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color:#fff;
+    cursor:pointer;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+ }
+ select::-ms-expand {
+    display: none;
+ }
+ .select {
+    position: relative;
+    display: flex;
+    width: 10em;
+    height: 2em;
+    background: white;
+    overflow: hidden;
+    border-radius: .25em;
+    margin-left: 2%;
+    margin-bottom: 3%;
+ }
+ option {
+    color: white;
+ }
+ .sort-btn {
+    margin-left: 2%;
+    background-color: #3c6e71;
+    color:white;
+    border: none;
+ }

@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="/css/profile.css">
+{{#if sess}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Logout";
+    let s = `/images/{{sess.image}}`
+    document.getElementById('prof').src = s;
+</script>
+{{else}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Login";
+    let s = `/images/def-pic.png`
+    document.getElementById('prof').src = s;
+</script>
+{{/if}}
+<hr class="line">
+{{#each rows}}
+<div class="continer">
+    <div class="row">
+        {{#if this.image}}
+        <div class="col-3 imgcol">
+            <img src='/images/{{this.image}}' alt="pic not avaliable">
+        </div>
+        {{else}}
+        <div class="col-3 imgcol">
+            <img src='/images/def-pic.jpg' alt="pic not avaliable">
+        </div>
+        {{/if}}
+        <div style="clear: both" class="col-8 col2">
+            <h4>{{this.first_name}} <span class="last_name">{{this.last_name}}</span> &nbsp; <span class="city"><i
+                        class="bi bi-geo-alt-fill"></i>{{this.city}}</span><span><a class="edit"
+                        href="/edituser/{{this.id}}">Edit</a></span></h4>
+            <h6 class="rating">Rating</h6>
+            <h6>4.5</h6>
+            <a href="/banUser/{{this.id}}" class="ban-btn"> <span class="ban-content"> <i class="bi bi-slash-circle"></i></i>Ban User </span> </a> 
+            <br>
+            <h6 class="about"><i class="bi bi-person-fill"></i>About</h6>
+            <hr>
+        </div>
+    </div>
+    <div class="row row-2">
+        <div class="col-3 col32">
+            <h6 class="education">Education <i class="bi bi-mortarboard-fill"></i></h6>
+            <h6>{{this.name}}</h6>
+            <h6>{{this.campus}}</h6>
+            <h6>Batch: <span class="batch-val">{{this.program}}</span></h6>
+            <h6>Semester: <span class="sem-val">{{this.semester}}</span></h6>
+            <h6>Roll No: <span class="roll-val">{{this.rollno}}</span></h6>
+        </div>
+        <div class="col-8 col82">
+            <h6 class="contact-info">Contact Information <i class="bi bi-person-lines-fill"></i></h6>
+            <h6>Phone: <span class="batch-val">03014734130</span></h6>
+            <h6>Email: <span class="sem-val">ameerhamza@gmail.com</span></h6>
+            <br>
+            <h6 class="basic-info">Basic Info <i class="bi bi-info-circle-fill"></i></h6>
+            <h6>Birthday: <span class="batch-val">23.11.2001</span></h6>
+            <h6>Gender: <span class="sem-val">Male</span></h6>
+        </div>
+    </div>
+</div>
+{{/each}}

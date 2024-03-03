@@ -1,0 +1,121 @@
+.img-square {
+    width: 100%;
+    height: 50%;
+}
+.card-img-topp {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}     
+i{
+    float: right;
+    font-size:medium;
+}  
+a{
+    text-decoration: none;
+}
+*{
+    color: black;
+}
+.fa-heart{
+    background: transparent;
+    border: none;
+    color: gray;
+    font-size: 20px;
+}
+.row{
+    margin-top: 4%;
+}
+.card {
+    border-radius: 0px;
+    margin-right: 40px;
+}
+.card-title{
+    margin-bottom: 8%;
+}
+.card-footer{
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    background:#284b63;
+    border:0!important;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color:#fff;
+    cursor:pointer;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: .25em;
+    height: 2em;
+ }
+ select::-ms-expand {
+    display: none;
+ }
+ .select {
+    position: relative;
+    display: flex;
+    width: 10em;
+    background: white;
+    overflow: hidden;
+    border-radius: .25em;
+ }
+ .select2 {
+    background-color: #3c6e71;
+ }
+ option {
+    color: white;
+ }
+ .sort-btn {
+    background-color: #3c6e71;
+    color:white;
+    border: none;
+    border-radius: .25em;
+    height: 2em;    
+ }
+
+ .sort-btn2 {
+    background-color:#284b63 ;
+ }
+
+ .dropdown-row {
+    margin-top: 1%;
+ }
+
+ .bi-funnel {
+    color: white;
+ }
+ .arrow-up {
+    color: white;
+ }
+
+ .first-col
+ {
+    padding: 0;
+ }
+ .second-col{
+    padding-right: 3%;
+ }
+
+ .sort-1{
+    margin-left: 3%;
+ }
+ .textbook {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #284b63;
+ }
+ .trove {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #3c6e71;
+ }

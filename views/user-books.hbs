@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/css/user-books.css">
+{{#if sess}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Logout";
+    let s = `/images/{{sess.image}}`    
+    document.getElementById('prof').src = s;
+</script>
+{{else}}
+<script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Login";
+</script>
+{{/if}}
+
+<div class="container container-books">
+
+{{#if seller}}
+  <div class="heading">
+    <h2>{{seller.first_name}}'s Books</h2>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+     <a href="/profile/{{seller.id}}"><img class="prof-img" src="/images/{{seller.image}}" alt=""></a> 
+  </div>
+{{/if}}
+
+  <div class="container table-wrapper">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Book Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rows}}
+    <tr>
+      <td><a href="/removeFromWishlist/{{this.bookid}}" type="button"><i class="bi bi-trash"></i></a></td>
+       <td>
+          <div>
+            <a href="/product/{{this.Book_Id}}"><img class="book-img" src='/images/{{this.bImg}}'alt=""></a> 
+          </div>
+        </td>
+      <td><p>{{this.Book_Name}}</p></td>
+      <td>{{this.Price}}</td>
+      <td>{{this.Cond}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>  
+</div>

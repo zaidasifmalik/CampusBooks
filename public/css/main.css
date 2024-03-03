@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+html {
+    height: 100%;
+}
+body{
+    font-family: 'Montserrat';
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.navbar-nav {
+    padding-left: 70px;
+}
+.prof-img-nav
+{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px #0003;
+    /* float: left; */
+}
+ul li{
+    padding-left: 50px;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    float:left;
+}
+ul li a {
+    color: white;
+}
+#login-btn{
+ width: 100%;
+ background-color: seagreen;
+}
+#register-btn{
+ width: 100%;
+ background-color: darkgoldenrod;
+}
+.col-md-4{
+    padding-top: 10px;
+}
+#navlogin-btn{
+    background-color: brown;
+}
+.ni{
+    margin-top: 6px;
+}
+.search-bar{
+    width: 28vw;
+    border-radius: none;
+}
+.search-bar:focus{
+    box-shadow: none;
+    outline: none;
+    border-color: none;
+}
+.newsletter {
+    color: white;
+    position: absolute;
+    right: 3%;
+}
+footer {
+    margin-top: auto;
+}
+.footer{
+    background-color: #284b63;
+    height: 100px;
+}
+.copyright{
+    color: white;
+    margin-left:3%;
+    position: relative;
+    top: 40%;
+}
+.NL-text{
+    color: white;
+}
+.nl-input{
+    /* background-color: darkslategray; */
+    background-color: #284b63;
+    border:1px solid gray;
+    border-radius: 0;
+    color: white;
+    margin-top: 10px;
+}
+.start{
+    margin-left: 7%;
+    color: white;
+    text-decoration: underline;
+}
+.f-item{
+    padding-left: 20px;
+    color: white;
+    text-decoration: underline;
+}
+input:focus {
+    outline: none;
+}
+.nl-btn {
+    background-color: #353535;
+    color: white;
+    border:none;
+    margin-left: 2%;
+} 

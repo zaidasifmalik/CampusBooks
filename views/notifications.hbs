@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/notifications.css">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active"> <a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Notifications</li>
+  </ol>
+</nav>
+<div class="container-wishlist">
+  {{!-- <div class="heading">
+    <div>
+      <i class="bi bi-heart heart"></i>
+    </div>
+    <h1>Notifications</h1>
+  </div> --}}
+  {{#if sess}}
+  <script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Logout";
+    let s = `/images/{{sess.image}}`
+    document.getElementById('prof').src = s;
+  </script>
+  <div class="container table-wrapper">
+    <table class="table">
+      <tbody>
+        {{#each rows}}
+        <tr>
+          <td>
+            <div>
+              <a href="/profile/{{this.sender}}"><img class="book-img" src='/images/{{this.image}}' alt=""></a>
+            </div>
+          </td>
+          <td>
+            <p>{{this.content}}</p>
+          </td>
+          <td><a href="/removeFromNotifications/{{this.notification_id}}" type="button"><i class="bi bi-trash"></i></a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{else}}
+  <script>
+    let log = document.getElementById('log-btn');
+    log.innerHTML = "Login";
+  </script>
+  <h1 class="log">You Are Not Logged In -.-</h1>
+  {{/if}}
+</div>

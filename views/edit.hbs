@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="/css/registeration.css">
+
+<h2>EDITING USER {{this.id}}</h2>
+{{#each rows}}
+<form action="/editProfile/{{this.id}}" method="POST" enctype="multipart/form-data">
+    {{> user-form}}
+</form>
+{{/each}}
